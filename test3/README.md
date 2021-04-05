@@ -1,26 +1,33 @@
-- - # 实验3：创建分区表
+  # 姓名：张禹龙
 
-    ## 实验目的
+  # 学号：201810414128
 
-    掌握分区表的创建方法，掌握各种分区方式的使用场景。
+  # 班级：软件工程2018级一班
 
-    ## 实验内容
-  
-    - 本实验使用3个表空间：USERS,USERS02,USERS03。在表空间中创建两张表：订单表(orders)与订单详表(order_details)。
-    - 使用**你自己的账号创建本实验的表**，表创建在上述3个分区，自定义分区策略。
-    - 你需要使用system用户给你自己的账号分配上述分区的使用权限。你需要使用system用户给你的用户分配可以查询执行计划的权限。
-    - 表创建成功后，插入数据，数据能并平均分布到各个分区。每个表的数据都应该大于1万行，对表进行联合查询。
-  - 写出插入数据的语句和查询数据的语句，并分析语句的执行计划。
-    - 进行分区与不分区的对比实验。
+  # 实验3：创建分区表
 
-    ## 实验参考步骤
+## 实验目的
 
-    【示例8-11】在主表orders和从表order_details之间建立引用分区 在study用户中创建两个表：orders（订单表）和order_details（订单详表），两个表通过列order_id建立主外键关联。orders表按范围分区进行存储，order_details使用引用分区进行存储。 创建orders表的部分语句是：
-    创建三个表空间
-  
-    ![1.png](1.png)
-    
-  
+掌握分区表的创建方法，掌握各种分区方式的使用场景。
+
+## 实验内容
+
+掌握分区表的创建方法，掌握各种分区方式的使用场景。
+
+## 实验内容
+
+- 本实验使用3个表空间：USERS,USERS02,USERS03。在表空间中创建两张表：订单表(orders)与订单详表(order_details)。
+- 使用**你自己的账号创建本实验的表**，表创建在上述3个分区，自定义分区策略。
+- 你需要使用system用户给你自己的账号分配上述分区的使用权限。你需要使用system用户给你的用户分配可以查询执行计划的权限。
+- 表创建成功后，插入数据，数据能并平均分布到各个分区。每个表的数据都应该大于1万行，对表进行联合查询。
+- 写出插入数据的语句和查询数据的语句，并分析语句的执行计划。
+- 进行分区与不分区的对比实验。
+
+## 实验参考步骤
+
+【示例8-11】在主表orders和从表order_details之间建立引用分区 在study用户中创建两个表：orders（订单表）和order_details（订单详表），两个表通过列order_id建立主外键关联。orders表按范围分区进行存储，order_details使用引用分区进行存储。 创建orders表的部分语句是： 创建三个表空间
+
+![1.png](1.png)
 
 运行实验三的脚本文件test3.sql，可以count出order和order_detail的大小，说明成功创建了表
 
@@ -285,6 +292,7 @@ from your_user.orders a,your_user.order_details b where
 a.ORDER_ID=b.order_id and
 a.order_date between to_date('2017-1-1','yyyy-mm-dd') and to_date('2018-6-1','yyyy-mm-dd');
 ```
+
 ## 查看数据库的使用情况
 
 以下样例查看表空间的数据库文件，以及每个文件的磁盘占用情况。
@@ -294,7 +302,9 @@ $ sqlplus system/123@pdborcl
 ```
 SQL>SELECT tablespace_name,FILE_NAME,BYTES/1024/1024 MB,MAXBYTES/1024/1024 MAX_MB,autoextensible FROM dba_data_files  WHERE  tablespace_name='USERS';
 ```
+
 ![运行结果](4.png)
+
 ```
 SQL>SELECT a.tablespace_name "表空间名",Total/1024/1024 "大小MB",
  free/1024/1024 "剩余MB",( total - free )/1024/1024 "使用MB",
@@ -306,7 +316,7 @@ SQL>SELECT a.tablespace_name "表空间名",Total/1024/1024 "大小MB",
  where  a.tablespace_name = b.tablespace_name;
 ```
 
-[![运行结果](5.png)
+![运行结果](5.png)
 
 - autoextensible是显示表空间中的数据文件是否自动增加。
 - MAX_MB是指数据文件的最大容量。
