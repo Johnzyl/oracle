@@ -116,18 +116,6 @@
 | 5    | PRODUCT_NUM   | NUMBER(8,2)       | NO       | 产品销售数量，必须>0                           |
 | 6    | PRODUCT_PRICE | NUMBER(8,2)       | NO       | 产品销售价格                                   |
 
-- 数据关系图如下 [![img](https://github.com/zwdcdu/oracle/raw/master/img/orders.png)](https://github.com/zwdcdu/oracle/blob/master/img/orders.png)
+表示用情况：
 
-## 实验注意事项，完成时间： 2021-4-30日前上交
-
-- 请按时完成实验，过时扣分。
-- 查询语句及分析文档`必须提交`到：你的Oracle项目中的test4目录中。
-- 上交后，通过这个地址应该可以打开你的源码：https://github.com/你的用户名/oracle/tree/master/test4
-- 实验分析及结果文档说明书用Markdown格式编写。
-
-## 评分标准
-
-- 实验独立完成，有详细的分析文档，文档中写明自己的用户名。（总分20分）
-- 表创建正确（总分30分）
-- 分区策略设计正确（总分20分）
-- SQL语句正确（总分30分）
+![图片11](图片11.png)
