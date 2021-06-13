@@ -1,4 +1,31 @@
-## **一． 需求分析**
+# 姓名：张禹龙
+
+# 学号：201810414128
+
+# 班级：软件工程2018级一班
+
+# 期末项目设计报告
+
+| 题 目    | 基于Oracle的图书管理系统数据库设计 |      |              |
+| -------- | ---------------------------------- | ---- | ------------ |
+| 课程     | Oracle数据库应用                   |      |              |
+| 学 院    | 信息科学与工程学院                 |      |              |
+| 专 业    | 软件工程                           | 年级 | 2018级       |
+| 学生姓名 | 任思绩                             | 学号 | 201810414120 |
+| 指导教师 | 赵卫东                             | 职称 | 副教授       |
+
+| **评分项**   | **评分标准**                 | **满分** | **得分** |
+| ------------ | ---------------------------- | -------- | -------- |
+| 文档整体     | 文档内容详实、规范，美观大方 | 10       |          |
+| 表设计       | 表，表空间设计合理，数据合理 | 20       |          |
+| 用户管理     | 权限及用户分配方案设计正确   | 20       |          |
+| PL/SQL设计   | 存储过程和函数设计正确       | 30       |          |
+| 备份方案     | 备份方案设计正确             | 20       |          |
+| **得分合计** |                              |          |          |
+
+2021 年 6 月 13 日
+
+## 一． 需求分析
 
 1.1背景 
 在图书馆的正常运行中，面临着大量的图书、读者信息和借阅、还书信息之间的互动产生。现有的手工记录方法效率低，误差过大，严重影响了图书馆的正常管理。因此，有必要对图书资源、读者资源、借阅信息和归还信息进行管理，及时了解各环节信息的变化，有利于提高管理效率。
@@ -41,15 +68,66 @@ Oracle数据库的优点一：ORACLE7.X以来引入了共享SQL和多线索服�
 
 数据表的设计
 
-书籍表设计BOOK 字段名 数据类型 可以为空 注释 bookno Number(10,0) no 书籍编号，主键 bookname Varchar2(20,BYTE) no 书名 bookclass Varchar2(20,BYTE) no 书的种类，书种类表外键 writer Varchar2(20,BYTE) no 作者 price Number(10,0) no 价格
+书籍表设计BOOK 
 
-书的种类表设计BOOKCLASS 字段名 数据类型 可以为空 注释 classno Number(10,0) no 书籍种类的编号，主键 classname Varchar2(20,BYTE) no 书籍的种类名
+| **字段名**   | **数据类型**                 | **可以为空** | **注释** |
+| ------------ | ---------------------------- | ------------ | -------- |
+| bookno       | Number(10,0) | no           |     书籍编号，主键      |
+| bookname     | Varchar2(20,BYTE)  | no          |    书名      |
+| bookclass    | Varchar2(20,BYTE)    | no         |     书的种类，书种类表外键      |
+| writer       | Varchar2(20,BYTE)        | no          |     价格     |
 
-管理员表设计MANAGER 字段名 数据类型 可以为空 注释 Adminname Varchar2(20,BYTE) no 管理员账号，主键 pwd Varchar2(20,BYTE) no 管理员密码 mname Varchar2(20,BYTE) no 管理员姓名 Join_date DATE no 加入日期
+书的种类表设计BOOKCLASS 
 
-借阅信息表设计BORROW 字段名 数据类型 可以为空 注释 bookno Varchar2(200,BYTE) N0 书籍编号，书籍表外键 studyno Varchar2(200,BYTE) N0 学生学号，学生表外键 Borrow_date Varchar2(20,BYTE) N0 借书日期 Return_date Varchar2(20,BYTE) N0 还书日期
+| **字段名**   | **数据类型**                 | **可以为空** | **注释** |
+| ------------ | ---------------------------- | ------------ | -------- |
+| classno       | Number(10,0) | no           |     书籍种类的编号，主键    |
+| classname     | Varchar2(20,BYTE)  | no          |    书籍的种类名      |
 
-学生信息表设计STUDENT 字段名 数据类型 可以为空 注释 username Varchar2(20,BYTE) no 学生账号 studyno Number(10,0) no 学生学号，主键 name Varchar2(10,BYTE) no 学生姓名 password Varchar2(20,BYTE) no 学生密码 phone Number(20,0) no 学生电话
+管理员表设计MANAGER 
+
+| **字段名** | **数据类型**      | **可以为空** | **注释**             |
+| ---------- | ----------------- | ------------ | -------------------- |
+| Adminname    | Varchar2(20,BYTE)      | no           | 管理员账号，主键 |
+| pwd   | Varchar2(20,BYTE) | no           | 管理员密码    |
+|  mname    | Varchar2(20,BYTE) | no | 管理员姓名 |
+| Join_date | DATE | no | 加入日期 |
+借阅信息表设计BORROW 
+
+| **字段名**  | **数据类型**       | **可以为空** | **注释**             |
+| ----------- | ------------------ | ------------ | -------------------- |
+| bookno      | Varchar2(200,BYTE) | no           | 书籍编号，书籍表外键 |
+| studyno     | Varchar2(200,BYTE) | no           | 学生学号，学生表外键 |
+| Borrow_date | Varchar2(20,BYTE)  | no           | 借书日期             |
+| Return_date | Varchar2(20,BYTE)  | no           | 还书日期             |
+
+学生信息表设计STUDENT 
+
+字段名 数据类型 可以为空 注释 
+
+username Varchar2(20,BYTE) no 学生账号 
+
+studyno Number(10,0) no 学生学号，主键 
+
+name Varchar2(10,BYTE) no 学生姓名 
+
+password Varchar2(20,BYTE) no 学生密码 
+
+phone Number(20,0) no 学生电话
+
+
+
+| **字段名** | **数据类型**      | **可以为空** | **注释**       |
+| ---------- | ----------------- | ------------ | -------------- |
+| username   | Varchar2(20,BYTE) | no           | 学生账号       |
+| studyno    | Number(10,0)      | no           | 学生学号，主键 |
+| name       | Varchar2(10,BYTE) | no           | 学生姓名       |
+| password   | Varchar2(20,BYTE) | no           | 学生密码       |
+| phone      | Number(20,0)      | no           | 学生电话       |
+
+
+
+
 
 ## **四． 物理结构设计**
 
