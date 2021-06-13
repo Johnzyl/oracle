@@ -77,12 +77,16 @@ Oracle数据库的优点一：ORACLE7.X以来引入了共享SQL和多线索服�
 | bookclass    | Varchar2(20,BYTE)    | no         |     书的种类，书种类表外键      |
 | writer       | Varchar2(20,BYTE)        | no          |     价格     |
 
+
+
 书的种类表设计BOOKCLASS 
 
 | **字段名**   | **数据类型**                 | **可以为空** | **注释** |
 | ------------ | ---------------------------- | ------------ | -------- |
 | classno       | Number(10,0) | no           |     书籍种类的编号，主键    |
 | classname     | Varchar2(20,BYTE)  | no          |    书籍的种类名      |
+
+
 
 管理员表设计MANAGER 
 
@@ -92,6 +96,8 @@ Oracle数据库的优点一：ORACLE7.X以来引入了共享SQL和多线索服�
 | pwd   | Varchar2(20,BYTE) | no           | 管理员密码    |
 |  mname    | Varchar2(20,BYTE) | no | 管理员姓名 |
 | Join_date | DATE | no | 加入日期 |
+
+
 借阅信息表设计BORROW 
 
 | **字段名**  | **数据类型**       | **可以为空** | **注释**             |
@@ -100,6 +106,8 @@ Oracle数据库的优点一：ORACLE7.X以来引入了共享SQL和多线索服�
 | studyno     | Varchar2(200,BYTE) | no           | 学生学号，学生表外键 |
 | Borrow_date | Varchar2(20,BYTE)  | no           | 借书日期             |
 | Return_date | Varchar2(20,BYTE)  | no           | 还书日期             |
+
+
 
 学生信息表设计STUDENT 
 
